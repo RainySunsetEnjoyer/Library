@@ -1,3 +1,4 @@
+using backend.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace backend.Data;
@@ -8,4 +9,6 @@ public class AppDbContext : DbContext
         : base(options)
     {
     }
+
+    public DbSet<Book> Books { get; set; }
 }

@@ -1,26 +1,24 @@
+using backend.Data;
+using backend.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class BooksController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+    private readonly AppDbContext _context;
 
-    private readonly ILogger<BooksController> _logger;
-
-    public BooksController(ILogger<BooksController> logger)
+    public BooksController(AppDbContext context)
     {
-        _logger = logger;
+        _context = context;
     }
 
-    /* [HttpGet(Name = "GetBooks")]
-    public IEnumerable<Book> Get()
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Book>>> GetBooks()
     {
-        // Implementation for getting books
-    } */
+        return await _context.Books.ToListAsync();
+    }
 }
