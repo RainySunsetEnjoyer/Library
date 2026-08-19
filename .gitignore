@@ -1,1 +1,11 @@
+# .NET
+**/bin/
+**/obj/
+
+# Angular
+**/node_modules/
+**/dist/
+**/.angular/
+
+# Development secrets
 /backend/appsettings.Development.json
