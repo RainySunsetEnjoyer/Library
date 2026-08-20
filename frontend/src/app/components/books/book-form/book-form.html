@@ -1,15 +1,18 @@
 <div class="container py-5">
     <h1 class="mb-4">Lägg till ny bok</h1>
 
-    <form>
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+
         <div class="mb-3">
             <label for="title" class="form-label">Titel</label>
-            <input id="title" type="text" class="form-control" placeholder="Ange bokens titel" />
+            <input id="title" type="text" class="form-control" placeholder="Ange bokens titel"
+                formControlName="title" />
         </div>
 
         <div class="mb-3">
             <label for="author" class="form-label">Författare</label>
-            <input id="author" type="text" class="form-control" placeholder="Ange författare" />
+            <input id="author" type="text" class="form-control" placeholder="Ange författare"
+                formControlName="author" />
         </div>
 
         <div class="mb-3">
@@ -17,10 +20,10 @@
                 Publiceringsdatum
             </label>
 
-            <input id="publicationDate" type="date" class="form-control" />
+            <input id="publicationDate" type="date" class="form-control" formControlName="publicationDate" />
         </div>
 
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-primary" [disabled]="bookForm.invalid">
             <i class="fa-solid fa-plus me-2"></i>
             Lägg till bok
         </button>
@@ -28,5 +31,6 @@
         <a routerLink="/books" class="btn btn-secondary ms-2">
             Avbryt
         </a>
+
     </form>
 </div>

@@ -11,4 +11,10 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<Book> Books { get; set; }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Book>()
+            .Property(b => b.PublicationDate)
+            .HasColumnType("date");
+    }
 }
