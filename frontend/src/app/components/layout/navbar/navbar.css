@@ -1,0 +1,11 @@
+.navbar {
+  min-height: 64px;
+}
+
+.navbar-brand {
+  font-size: 1.1rem;
+}
+
+.nav-link {
+  cursor: pointer;
+}
