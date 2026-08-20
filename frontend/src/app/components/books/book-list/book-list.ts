@@ -1,12 +1,28 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { BookService } from '../../../services/book';
+import { Book } from '../../../models/book';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-book-list',
-  imports: [],
+  imports: [RouterLink, DatePipe],
   templateUrl: './book-list.html',
-  styleUrl: './book-list.css',
+  styleUrl: './book-list.css'
 })
-export class BookList {
+export class BookList implements OnInit {
+  books: Book[] = [];
 
+  constructor(private bookService: BookService) { }
+
+  ngOnInit(): void {
+    this.bookService.getBooks().subscribe({
+      next: (books) => {
+        this.books = books;
+      },
+      error: (error) => {
+        console.error('Failed to load books:', error);
+      }
+    });
+  }
 }

@@ -1,1 +1,32 @@
-<p>book-form works!</p>
+<div class="container py-5">
+    <h1 class="mb-4">Lägg till ny bok</h1>
+
+    <form>
+        <div class="mb-3">
+            <label for="title" class="form-label">Titel</label>
+            <input id="title" type="text" class="form-control" placeholder="Ange bokens titel" />
+        </div>
+
+        <div class="mb-3">
+            <label for="author" class="form-label">Författare</label>
+            <input id="author" type="text" class="form-control" placeholder="Ange författare" />
+        </div>
+
+        <div class="mb-3">
+            <label for="publicationDate" class="form-label">
+                Publiceringsdatum
+            </label>
+
+            <input id="publicationDate" type="date" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            <i class="fa-solid fa-plus me-2"></i>
+            Lägg till bok
+        </button>
+
+        <a routerLink="/books" class="btn btn-secondary ms-2">
+            Avbryt
+        </a>
+    </form>
+</div>
