@@ -25,7 +25,7 @@
                     </p>
 
                     <p class="text-muted">
-                        Publicerad: {{ book.publicationDate }}
+                        Publicerad: {{ book.publicationDate | date:'yyyy-MM-dd' }}
                     </p>
 
                     <div class="book-actions">
