@@ -16,5 +16,9 @@ export const routes: Routes = [
     {
         path: 'books/new',
         component: BookForm
+    },
+    {
+        path: 'books/edit/:id',
+        component: BookForm
     }
 ];

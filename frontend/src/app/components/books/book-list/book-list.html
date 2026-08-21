@@ -29,10 +29,10 @@
                     </p>
 
                     <div class="book-actions">
-                        <button class="btn btn-outline-primary">
+                        <a [routerLink]="['/books/edit', book.id]" class="btn btn-outline-primary">
                             <i class="fa-solid fa-pen me-1"></i>
                             Redigera
-                        </button>
+                        </a>
 
                         <button class="btn btn-outline-danger">
                             <i class="fa-solid fa-trash me-1"></i>
