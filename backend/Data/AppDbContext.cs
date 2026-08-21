@@ -17,4 +17,6 @@ public class AppDbContext : DbContext
             .Property(b => b.PublicationDate)
             .HasColumnType("date");
     }
+
+    public DbSet<User> Users { get; set; }
 }
