@@ -25,4 +25,15 @@ export class BookList implements OnInit {
       }
     });
   }
+
+  deleteBook(id: number): void {
+    this.bookService.deleteBook(id).subscribe({
+      next: () => {
+        this.books = this.books.filter(book => book.id !== id);
+      },
+      error: (error) => {
+        console.error('Failed to delete book:', error);
+      }
+    });
+  }
 }
