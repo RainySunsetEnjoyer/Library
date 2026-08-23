@@ -13,6 +13,9 @@ import { DatePipe } from '@angular/common';
 export class BookList implements OnInit {
   books: Book[] = [];
 
+  deleteConfirmation = false;
+  bookIdToDelete: number | null = null;
+
   constructor(private bookService: BookService) { }
 
   ngOnInit(): void {
@@ -24,6 +27,27 @@ export class BookList implements OnInit {
         console.error('Failed to load books:', error);
       }
     });
+  }
+
+  confirmDelete(id: number): void {
+    this.bookIdToDelete = id;
+    this.deleteConfirmation = true;
+  }
+
+  cancelDelete(): void {
+    this.bookIdToDelete = null;
+    this.deleteConfirmation = false;
+  }
+
+  executeDelete(): void {
+    if (this.bookIdToDelete === null) {
+      return;
+    }
+
+    this.deleteBook(this.bookIdToDelete);
+
+    this.bookIdToDelete = null;
+    this.deleteConfirmation = false;
   }
 
   deleteBook(id: number): void {
