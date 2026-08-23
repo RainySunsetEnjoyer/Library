@@ -1,5 +1,5 @@
 <div class="container py-5">
-    <h1 class="mb-4">Lägg till ny bok</h1>
+    <h1 class="mb-4">{{ bookId !== null ? 'Redigera bok' : 'Lägg till ny bok' }}</h1>
 
     <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
 
@@ -24,8 +24,8 @@
         </div>
 
         <button type="submit" class="btn btn-primary" [disabled]="bookForm.invalid">
-            <i class="fa-solid fa-plus me-2"></i>
-            Lägg till bok
+            <i class="fa-solid" [class.fa-plus]="bookId === null" [class.fa-edit]="bookId !== null"></i>
+            {{ bookId !== null ? 'Redigera bok' : 'Lägg till ny bok' }}
         </button>
 
         <a routerLink="/books" class="btn btn-secondary ms-2">
