@@ -1,1 +1,63 @@
-<p>register works!</p>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-5">
+
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+
+                    <h1 class="card-title text-center mb-4">
+                        Skapa konto
+                    </h1>
+
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+                        <div class="mb-3">
+                            <label for="username" class="form-label">
+                                Användarnamn
+                            </label>
+
+                            <input id="username" type="text" class="form-control" placeholder="Ange användarnamn"
+                                formControlName="username">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">
+                                Lösenord
+                            </label>
+
+                            <input id="password" type="password" class="form-control" placeholder="Ange lösenord"
+                                formControlName="password">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="confirmPassword" class="form-label">
+                                Bekräfta lösenord
+                            </label>
+
+                            <input id="confirmPassword" type="password" class="form-control"
+                                placeholder="Ange lösenord igen" formControlName="confirmPassword">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100" [disabled]="registerForm.invalid">
+                            <i class="fa-solid fa-user-plus me-2"></i>
+                            Skapa konto
+                        </button>
+
+                    </form>
+
+                    <div class="text-center mt-3">
+                        <span class="text-muted">
+                            Har du redan ett konto?
+                        </span>
+
+                        <a routerLink="/login" class="ms-1">
+                            Logga in
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

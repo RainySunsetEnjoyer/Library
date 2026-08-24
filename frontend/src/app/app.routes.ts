@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { BookList } from './components/books/book-list/book-list';
 import { BookForm } from './components/books/book-form/book-form';
+import { Register } from './components/auth/register/register';
 
 
 export const routes: Routes = [
@@ -20,5 +21,9 @@ export const routes: Routes = [
     {
         path: 'books/edit/:id',
         component: BookForm
+    },
+    {
+        path: 'register',
+        component: Register
     }
 ];
