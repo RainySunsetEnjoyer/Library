@@ -3,6 +3,7 @@ import { BookList } from './components/books/book-list/book-list';
 import { BookForm } from './components/books/book-form/book-form';
 import { Register } from './components/auth/register/register';
 import { Login } from './components/auth/login/login';
+import { guestGuard } from './guards/guest.guard';
 
 
 export const routes: Routes = [
@@ -25,10 +26,12 @@ export const routes: Routes = [
     },
     {
         path: 'register',
-        component: Register
+        component: Register,
+        canActivate: [guestGuard]
     },
     {
         path: 'login',
-        component: Login
+        component: Login,
+        canActivate: [guestGuard]
     }
 ];

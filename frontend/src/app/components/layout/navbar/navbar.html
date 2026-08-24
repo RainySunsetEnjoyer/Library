@@ -29,8 +29,18 @@
                     </a>
                 </li>
 
+                @if (isLoggedIn$ | async) {
+                <button type="button" class="btn btn-outline-danger" (click)="logout(); closeMenu()">
+                    <i class="fa-solid fa-right-from-bracket me-2"></i>
+                    Logga ut
+                </button>
+                } @else {
+                <a routerLink="/login" class="btn btn-primary" (click)="closeMenu()">
+                    <i class="fa-solid fa-right-to-bracket me-2"></i>
+                    Logga in
+                </a>
+                }
             </ul>
         </div>
-
     </div>
 </nav>

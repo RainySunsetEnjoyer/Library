@@ -118,4 +118,25 @@ public class AuthController : ControllerBase
         );
         return Ok();
     }
+
+    [HttpPost("logout")]
+    public IActionResult Logout()
+    {
+        Response.Cookies.Delete("authToken");
+        return Ok();
+    }
+
+    [HttpGet("me")]
+    public IActionResult Me()
+    {
+        if (User.Identity?.IsAuthenticated != true)
+        {
+            return Unauthorized();
+        }
+
+        return Ok(new
+        {
+            username = User.Identity.Name
+        });
+    }
 }
