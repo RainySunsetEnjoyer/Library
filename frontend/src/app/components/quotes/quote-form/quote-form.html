@@ -1,0 +1,21 @@
+<div class="container py-5">
+    <h1 class="mb-4">{{ quoteId !== null ? 'Redigera citat' : 'Lägg till nytt citat' }}</h1>
+
+    <form [formGroup]="quoteForm" (ngSubmit)="onSubmit()">
+
+        <div class="mb-3">
+            <label for="text" class="form-label">Citat</label>
+            <textarea class="form-control" id="text" rows="3" placeholder="Skriv citatet här"
+                formControlName="text"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="quoteForm.invalid">
+            <i class="fa-solid" [class.fa-plus]="quoteId === null" [class.fa-edit]="quoteId !== null"></i>
+            {{ quoteId !== null ? 'Redigera citat' : 'Lägg till nytt citat' }}
+        </button>
+
+        <a routerLink="/quotes" class="btn btn-secondary ms-2">
+            Avbryt
+        </a>
+    </form>
+</div>

@@ -1,0 +1,66 @@
+<div class="container py-5">
+    <div class="quote-list-header">
+        <div>
+            <h1>Mina Citat</h1>
+            <p class="text-muted">
+                Hantera dina fem favoritcitat här.
+            </p>
+        </div>
+
+        <a routerLink="/quotes/new" class="btn btn-primary">
+            <i class="fa-solid fa-plus me-2"></i>
+            Lägg till nytt citat
+        </a>
+    </div>
+    <div class="row g-4">
+        @for (quote of quotes; track quote.id) {
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <p class="card-text">
+                        {{ quote.text }}
+                    </p>
+
+                    <div class="quote-actions">
+                        <a [routerLink]="['/quotes/edit', quote.id]" class="btn btn-outline-primary">
+                            <i class="fa-solid fa-pen me-1"></i>
+                            Redigera
+                        </a>
+
+                        <button type="button" class="btn btn-outline-danger" (click)="confirmDelete(quote.id)">
+                            <i class="fa-solid fa-trash me-1"></i>
+                            Radera
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+
+    @if (deleteConfirmation) {
+    <div class="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-center justify-content-center"
+        style="z-index: 1050;">
+
+        <div class="bg-white rounded-3 shadow p-4 mx-3" style="max-width: 400px; width: 100%;">
+
+            <h2 class="h5 mb-3">
+                Bekräfta radering
+            </h2>
+
+            <p class="mb-4">
+                Är du säker på att du vill radera det här citatet?
+            </p>
+            <div class="d-flex justify-content-end gap-2">
+                <button type="button" class="btn btn-danger" (click)="executeDelete()">
+                    <i class="fa-solid fa-trash me-1"></i>
+                    Radera
+                </button>
+                <button type="button" class="btn btn-outline-secondary" (click)="cancelDelete()">
+                    Avbryt
+                </button>
+            </div>
+        </div>
+    </div>
+    }
+</div>
