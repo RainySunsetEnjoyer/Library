@@ -3,6 +3,7 @@ import { BookList } from './components/books/book-list/book-list';
 import { BookForm } from './components/books/book-form/book-form';
 import { Register } from './components/auth/register/register';
 import { Login } from './components/auth/login/login';
+import { authGuard } from './guards/auth.guard';
 import { guestGuard } from './guards/guest.guard';
 import { QuoteList } from './components/quotes/quote-list/quote-list';
 import { QuoteForm } from './components/quotes/quote-form/quote-form';
@@ -20,11 +21,13 @@ export const routes: Routes = [
     },
     {
         path: 'books/new',
-        component: BookForm
+        component: BookForm,
+        canActivate: [authGuard]
     },
     {
         path: 'books/edit/:id',
-        component: BookForm
+        component: BookForm,
+        canActivate: [authGuard]
     },
     {
         path: 'register',
@@ -38,14 +41,17 @@ export const routes: Routes = [
     },
     {
         path: 'quotes',
-        component: QuoteList
+        component: QuoteList,
+        canActivate: [authGuard]
     },
     {
         path: 'quotes/new',
-        component: QuoteForm
+        component: QuoteForm,
+        canActivate: [authGuard]
     },
     {
         path: 'quotes/edit/:id',
-        component: QuoteForm
+        component: QuoteForm,
+        canActivate: [authGuard]
     }
 ];
