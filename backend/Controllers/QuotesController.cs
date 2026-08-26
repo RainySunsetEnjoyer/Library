@@ -53,6 +53,14 @@ public class QuotesController : ControllerBase
             User.FindFirstValue(ClaimTypes.NameIdentifier)!
         );
 
+        var quoteCount = await _context.Quotes
+            .CountAsync(q => q.UserId == userId);
+
+        if (quoteCount >= 5)
+        {
+            return BadRequest("Du kan endast ha upp till 5 citat.");
+        }
+
         var quote = new Quote
         {
             Text = request.Text,
