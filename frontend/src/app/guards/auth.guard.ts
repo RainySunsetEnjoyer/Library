@@ -1,17 +1,19 @@
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { map } from 'rxjs';
+import { filter, map, take } from 'rxjs';
 import { AuthService } from '../services/auth';
 
 export const authGuard = () => {
   const authService = inject(AuthService);
   const router = inject(Router);
 
-  return authService.isLoggedIn$.pipe(
-    map(isLoggedIn =>
-      isLoggedIn
+  return authService.authChecked$.pipe(
+    filter(checked => checked),
+    take(1),
+    map(() => {
+      return authService.isLoggedIn()
         ? true
-        : router.createUrlTree(['/login'])
-    )
+        : router.createUrlTree(['/login']);
+    })
   );
 };

@@ -1,0 +1,29 @@
+.quote-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.quote-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+@media (max-width: 400px) {
+    .quote-actions {
+        flex-direction: column;
+    }
+
+    .quote-actions .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .quote-list-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+}

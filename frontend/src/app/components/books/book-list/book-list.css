@@ -1,19 +1,14 @@
-.book-list-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
 .book-actions {
     display: flex;
     gap: 0.5rem;
 }
 
-@media (max-width: 576px) {
-    .book-list-header {
+@media (max-width: 400px) {
+    .book-actions {
         flex-direction: column;
-        align-items: stretch;
-        gap: 1rem;
+    }
+
+    .book-actions .btn {
+        width: 100%;
     }
 }
