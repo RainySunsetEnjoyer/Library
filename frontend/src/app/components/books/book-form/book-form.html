@@ -1,36 +1,65 @@
 <div class="container py-5">
-    <h1 class="mb-4">{{ bookId !== null ? 'Redigera bok' : 'Lägg till ny bok' }}</h1>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
 
-    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4 p-md-5">
 
-        <div class="mb-3">
-            <label for="title" class="form-label">Titel</label>
-            <input id="title" type="text" class="form-control" placeholder="Ange bokens titel"
-                formControlName="title" />
+                    <h1 class="mb-4">
+                        {{ bookId !== null ? 'Redigera bok' : 'Lägg till ny bok' }}
+                    </h1>
+
+                    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+
+                        <div class="mb-3">
+                            <label for="title" class="form-label">
+                                Titel
+                            </label>
+
+                            <input id="title" type="text" class="form-control" placeholder="Ange bokens titel"
+                                formControlName="title">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="author" class="form-label">
+                                Författare
+                            </label>
+
+                            <input id="author" type="text" class="form-control" placeholder="Ange författare"
+                                formControlName="author">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="publicationDate" class="form-label">
+                                Publiceringsdatum
+                            </label>
+
+                            <input id="publicationDate" type="date" class="form-control"
+                                formControlName="publicationDate">
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-2">
+                            <button type="submit" class="btn btn-primary" [disabled]="bookForm.invalid">
+
+                                <i class="fa-solid me-1" [class.fa-plus]="bookId === null"
+                                    [class.fa-edit]="bookId !== null">
+                                </i>
+
+                                {{ bookId !== null
+                                ? 'Redigera bok'
+                                : 'Lägg till ny bok' }}
+                            </button>
+
+                            <a routerLink="/books" class="btn btn-secondary">
+                                Avbryt
+                            </a>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
         </div>
-
-        <div class="mb-3">
-            <label for="author" class="form-label">Författare</label>
-            <input id="author" type="text" class="form-control" placeholder="Ange författare"
-                formControlName="author" />
-        </div>
-
-        <div class="mb-3">
-            <label for="publicationDate" class="form-label">
-                Publiceringsdatum
-            </label>
-
-            <input id="publicationDate" type="date" class="form-control" formControlName="publicationDate" />
-        </div>
-
-        <button type="submit" class="btn btn-primary" [disabled]="bookForm.invalid">
-            <i class="fa-solid" [class.fa-plus]="bookId === null" [class.fa-edit]="bookId !== null"></i>
-            {{ bookId !== null ? 'Redigera bok' : 'Lägg till ny bok' }}
-        </button>
-
-        <a routerLink="/books" class="btn btn-secondary ms-2">
-            Avbryt
-        </a>
-
-    </form>
+    </div>
 </div>
