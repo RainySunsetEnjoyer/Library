@@ -21,7 +21,7 @@ export interface User {
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:5261/api/auth';
+  private apiUrl = '/api/auth';
 
   private loggedInSubject = new BehaviorSubject<boolean>(false);
   private authCheckedSubject = new BehaviorSubject<boolean>(false);
