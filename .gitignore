@@ -9,3 +9,6 @@
 
 # Development secrets
 /backend/appsettings.Development.json
+
+# Environment variables
+.env
