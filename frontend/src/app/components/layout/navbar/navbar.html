@@ -22,8 +22,7 @@
                     </a>
                 </li>
 
-                @if (isLoggedIn$ | async)
-                {
+                @if (isLoggedIn$ | async) {
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/quotes" routerLinkActive="active" (click)="closeMenu()">
                         <i class="fa-solid fa-quote-left me-1"></i>
