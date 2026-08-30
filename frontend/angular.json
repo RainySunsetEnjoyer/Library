@@ -61,7 +61,8 @@
               "buildTarget": "library-app:build:production"
             },
             "development": {
-              "buildTarget": "library-app:build:development"
+              "buildTarget": "library-app:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
