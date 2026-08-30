@@ -45,4 +45,8 @@ export class Navbar {
   toggleTheme(): void {
     this.themeService.toggleTheme();
   }
+
+  isDarkMode(): boolean {
+    return this.themeService.getCurrentTheme() === 'dark';
+  }
 }

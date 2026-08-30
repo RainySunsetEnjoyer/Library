@@ -16,7 +16,7 @@ export class Theme {
     this.setTheme(newTheme);
   }
 
-  private getCurrentTheme(): string {
+  getCurrentTheme(): string {
     return localStorage.getItem(this.storageKey) || 'light';
   }
 

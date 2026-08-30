@@ -42,7 +42,7 @@
                 }
 
                 <button type="button" class="btn btn-outline-secondary" (click)="toggleTheme()">
-                    <i class="fa-solid fa-moon me-2"></i>
+                    <i class="fa-solid" [class.fa-sun]="isDarkMode()" [class.fa-moon]="!isDarkMode()"></i>
                     Växla tema
                 </button>
             </ul>
