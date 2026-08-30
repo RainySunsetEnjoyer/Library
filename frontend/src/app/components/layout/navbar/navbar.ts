@@ -1,8 +1,9 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 import { AuthService } from '../../../services/auth';
+import { Theme } from '../../../services/theme';
 
 @Component({
   selector: 'app-navbar',
@@ -16,7 +17,8 @@ export class Navbar {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private themeService: Theme
   ) {
     this.isLoggedIn$ = this.authService.isLoggedIn$;
   }
@@ -38,5 +40,9 @@ export class Navbar {
 
   closeMenu(): void {
     this.isMenuOpen = false;
+  }
+
+  toggleTheme(): void {
+    this.themeService.toggleTheme();
   }
 }
