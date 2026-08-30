@@ -22,6 +22,7 @@
                     </a>
                 </li>
 
+                @if (isLoggedIn$ | async) {
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/quotes" routerLinkActive="active" (click)="closeMenu()">
                         <i class="fa-solid fa-quote-left me-1"></i>
@@ -29,7 +30,6 @@
                     </a>
                 </li>
 
-                @if (isLoggedIn$ | async) {
                 <button type="button" class="btn btn-outline-danger" (click)="logout(); closeMenu()">
                     <i class="fa-solid fa-right-from-bracket me-2"></i>
                     Logga ut
