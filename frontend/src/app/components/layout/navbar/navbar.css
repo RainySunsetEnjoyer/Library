@@ -9,3 +9,25 @@
 .nav-link {
   cursor: pointer;
 }
+
+.theme-toggle {
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: 0.2s ease;
+}
+
+.theme-toggle-dark {
+  background-color: #3d3f46;
+  color: #ced130;
+}
+
+.theme-toggle-light {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+}

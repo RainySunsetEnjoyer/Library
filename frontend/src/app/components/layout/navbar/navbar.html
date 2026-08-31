@@ -5,6 +5,11 @@
             <i class="fa-solid fa-book-open me-2"></i>
             Azure Library
         </a>
+        <button type="button"
+            class="btn theme-toggle d-flex align-items-center justify-content-center d-lg-none ms-auto me-2"
+            [class.theme-toggle-dark]="!isDarkMode()" [class.theme-toggle-light]="isDarkMode()" (click)="toggleTheme()">
+            <i class="fa-solid" [class.fa-sun]="isDarkMode()" [class.fa-moon]="!isDarkMode()"></i>
+        </button>
 
         <button class="navbar-toggler" type="button" (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen"
             aria-controls="mainNavbar" aria-label="Öppna navigeringsmeny">
@@ -40,12 +45,16 @@
                     Logga in
                 </a>
                 }
-
-                <button type="button" class="btn btn-outline-secondary" (click)="toggleTheme()">
-                    <i class="fa-solid" [class.fa-sun]="isDarkMode()" [class.fa-moon]="!isDarkMode()"></i>
-                    Växla tema
-                </button>
             </ul>
+            <button type="button"
+                class="btn theme-toggle d-none d-lg-flex align-items-center justify-content-center ms-lg-3"
+                [class.theme-toggle-dark]="!isDarkMode()" [class.theme-toggle-light]="isDarkMode()"
+                (click)="toggleTheme()">
+
+                <i class="fa-solid" [class.fa-sun]="isDarkMode()" [class.fa-moon]="!isDarkMode()">
+                </i>
+            </button>
+
         </div>
     </div>
 </nav>
