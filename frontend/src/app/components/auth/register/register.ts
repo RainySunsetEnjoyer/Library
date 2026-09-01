@@ -43,11 +43,25 @@ export class Register {
     if (this.registerForm.invalid) {
       return;
     }
+
     const { username, password } = this.registerForm.value;
-    this.authService.register({ username: username!, password: password! }).subscribe({
+
+    this.authService.register({
+      username: username!,
+      password: password!
+    }).subscribe({
       next: () => {
-        console.log('Registration successful');
-        this.router.navigate(['/books']);
+        this.authService.login({
+          username: username!,
+          password: password!
+        }).subscribe({
+          next: () => {
+            this.router.navigate(['/books']);
+          },
+          error: (err) => {
+            console.error('Automatic login failed', err);
+          }
+        });
       },
       error: (err) => {
         console.error('Registration failed', err);
