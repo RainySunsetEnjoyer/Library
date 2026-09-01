@@ -51,6 +51,7 @@ export class Register {
       password: password!
     }).subscribe({
       next: () => {
+        console.log('Registration successful');
         this.authService.login({
           username: username!,
           password: password!
