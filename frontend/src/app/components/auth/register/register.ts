@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth';
 
 @Component({
@@ -15,7 +15,8 @@ export class Register {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -46,6 +47,7 @@ export class Register {
     this.authService.register({ username: username!, password: password! }).subscribe({
       next: () => {
         console.log('Registration successful');
+        this.router.navigate(['/books']);
       },
       error: (err) => {
         console.error('Registration failed', err);
